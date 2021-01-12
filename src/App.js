@@ -8,10 +8,7 @@ function App() {
       <div className="container">
         <Weather />
         <footer>
-          <a
-            href="https://github.com/Rafalenda/react-weather-app"
-            target="_blank"
-          >
+          <a href="https://github.com/Rafalenda/react-weather-app">
             This site was coded by Rafaela
           </a>{" "}
           open sourced on GitHub
