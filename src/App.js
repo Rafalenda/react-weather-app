@@ -8,10 +8,11 @@ function App() {
       <div className="container">
         <Weather />
         <footer>
+          This site was coded by Rafaela open sourced on
           <a href="https://github.com/Rafalenda/react-weather-app">
-            This site was coded by Rafaela
-          </a>{" "}
-          open sourced on GitHub
+            <span>&nbsp;</span>GitHub
+          </a>
+          .
         </footer>
       </div>
     </div>
