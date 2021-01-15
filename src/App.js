@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Weather from "./Weather";
 
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 
 function App() {
   return (
