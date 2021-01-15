@@ -10,7 +10,7 @@ export default function Weather(props) {
 
     setWeatherData({
       ready: true,
-      temperature: response.data.main.temp,
+      temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
       date: "Wednesday 07:30 am",
@@ -53,11 +53,10 @@ export default function Weather(props) {
         <div className="row mt-3">
           <div className="col-6">
             <div className="clearfix">
-              <img src={weatherData.iconUrl} alt="imagem" />
-
               <div className="float-left">
+                <img src={weatherData.iconUrl} alt="imagem" />
                 <span className="temperature">{weatherData.temperature}</span>
-                <span className="unit">°C</span>
+                <span className="unit">°C </span>
               </div>
             </div>
           </div>
@@ -72,8 +71,8 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = `3662395bff1204baa799bc2904eb3639`;
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${API_KEY}&units=metric`;
 
     //ajax call
     axios.get(apiUrl).then(handleResponse).catch(alert);
