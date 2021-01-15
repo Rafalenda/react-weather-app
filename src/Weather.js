@@ -72,7 +72,7 @@ export default function Weather(props) {
     );
   } else {
     const API_KEY = process.env.REACT_APP_API_KEY;
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${API_KEY}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${API_KEY}&units=metric`;
 
     //ajax call
     axios.get(apiUrl).then(handleResponse).catch(alert);
