@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather defaultCity="Paris" />
+        <Weather defaultCity="Toronto" />
 
         <footer>
           This site was coded by Rafaela open sourced on
