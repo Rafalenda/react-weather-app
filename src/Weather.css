@@ -4,8 +4,8 @@ body {
 }
 
 .Weather {
-  color: #878787;
-  background-color: rgb(238, 186, 206);
+  color: rgb(33, 33, 33);
+  background-color: rgba(9, 99, 202, 0.411);
   border: 1px solid black;
   border-radius: 10px;
   margin: 30px 0 10px 0;
@@ -15,7 +15,7 @@ body {
 
 .Weather h1 {
   margin: 20px 0 0 0;
-  color: #878787;
+  color: rgb(33, 33, 33);
   display: block;
   font-weight: 100;
   line-height: 40px;
