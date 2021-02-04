@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WeatherForecastEach from "./WeatherForecast";
 import axios from "axios";
 import "./WeatherForecast.css";
 
@@ -15,12 +16,31 @@ export default function WeatherForecast(props) {
   if (loaded) {
     console.log(forecast);
     return (
-      <div className="WeatherForecast">
-        {Math.round(forecast.list[0].main.temp)}
-        {Math.round(forecast.list[1].main.temp)}
-        {Math.round(forecast.list[2].main.temp)}
-        {Math.round(forecast.list[3].main.temp)}
-        {Math.round(forecast.list[4].main.temp)}
+      <div className="WeatherForecast row">
+        <div className="col">
+          {new Date(forecast.list[0].dt * 1000).getHours()}:00
+          {Math.round(forecast.list[0].main.temp)}°C
+        </div>
+
+        <div className="col">
+          {new Date(forecast.list[1].dt * 1000).getHours()}:00
+          {Math.round(forecast.list[1].main.temp)}°C
+        </div>
+
+        <div className="col">
+          {new Date(forecast.list[2].dt * 1000).getHours()}:00
+          {Math.round(forecast.list[2].main.temp)}°C
+        </div>
+
+        <div className="col">
+          {new Date(forecast.list[3].dt * 1000).getHours()}:00
+          {Math.round(forecast.list[3].main.temp)}°C
+        </div>
+
+        <div className="col">
+          {new Date(forecast.list[4].dt * 1000).getHours()}:00
+          {Math.round(forecast.list[4].main.temp)}°C
+        </div>
       </div>
     );
   } else {
