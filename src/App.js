@@ -1,6 +1,6 @@
 import React from "react";
 
-import Autosuggest from "react-autosuggest";
+//import Autosuggest from "react-autosuggest";
 
 import "./App.css";
 import Weather from "./Weather";
