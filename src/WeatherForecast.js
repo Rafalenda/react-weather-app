@@ -5,13 +5,25 @@ import "./WeatherForecast.css";
 export default function WeatherForecast(props) {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setforecast] = useState(null);
+  const [cityRetrieved, setCityRetrieved] = useState(null);
 
   function handleForecastResponse(response) {
     setforecast(response.data);
     setLoaded(true);
   }
+  if (props.city !== cityRetrieved) {
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${API_KEY}&units=metric`;
+    //ajax call
+    axios
+      .get(apiUrl)
+      .then(handleForecastResponse)
+      .then(() => {
+        setCityRetrieved(props.city);
+      });
+  }
 
-  if (loaded) {
+  if (forecast) {
     return (
       <div className="WeatherForecast row">
         <div className="col">
@@ -61,10 +73,6 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    const API_KEY = process.env.REACT_APP_API_KEY;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${API_KEY}&units=metric`;
-    //ajax call
-    axios.get(apiUrl).then(handleForecastResponse);
-    return null;
+    return <div>Loanding...</div>;
   }
 }
