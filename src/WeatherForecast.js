@@ -7,13 +7,11 @@ export default function WeatherForecast(props) {
   const [forecast, setforecast] = useState(null);
 
   function handleForecastResponse(response) {
-    console.log(response.data);
     setforecast(response.data);
     setLoaded(true);
   }
 
   if (loaded) {
-    console.log(forecast);
     return (
       <div className="WeatherForecast row">
         <div className="col">
