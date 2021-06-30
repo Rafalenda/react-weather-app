@@ -18,7 +18,9 @@ export default function Weather(props) {
       iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       wind: response.data.wind.speed,
       city: response.data.name,
+      country: response.data.sys.country,
     });
+    console.log(response.data);
   }
 
   //make the api call
