@@ -3,13 +3,11 @@ import axios from "axios";
 import "./WeatherForecast.css";
 
 export default function WeatherForecast(props) {
-  const [loaded, setLoaded] = useState(false);
   const [forecast, setforecast] = useState(null);
   const [cityRetrieved, setCityRetrieved] = useState(null);
 
   function handleForecastResponse(response) {
     setforecast(response.data);
-    setLoaded(true);
   }
   if (props.city !== cityRetrieved) {
     const API_KEY = process.env.REACT_APP_API_KEY;
@@ -21,6 +19,7 @@ export default function WeatherForecast(props) {
       .then(() => {
         setCityRetrieved(props.city);
       });
+    return <div>Loading...</div>;
   }
 
   if (forecast) {
@@ -73,6 +72,6 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    return <div>Loanding...</div>;
+    return <div>Loading...</div>;
   }
 }
